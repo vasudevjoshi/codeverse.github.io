@@ -84,6 +84,64 @@ document.addEventListener('DOMContentLoaded', function() {
    // Optional: Automatically scroll to the first slide on page load
    scrollToSlide(0);
 });
+const slides = document.querySelectorAll('.carousel-slide');
+const totalSlides = slides.length;
+let currentIndex = 0;
+
+// Function to show the next slide
+function showNextSlide() {
+   currentIndex++;
+   if (currentIndex >= totalSlides) {
+       currentIndex = 0;
+   }
+   updateCarousel();
+}
+
+// Function to show the previous slide
+function showPreviousSlide() {
+   currentIndex--;
+   if (currentIndex < 0) {
+       currentIndex = totalSlides - 1;
+   }
+   updateCarousel();
+}
+
+// Function to update the carousel
+function updateCarousel() {
+   const carouselContainer = document.querySelector('.carousel-container');
+   const translateXValue = -currentIndex * 100;
+   carouselContainer.style.transform = `translateX(${translateXValue}%)`;
+}
+
+// Set the interval for the auto slide
+let slideInterval = setInterval(showNextSlide, 3000); // Change slide every 2 seconds
+
+// Pause the auto slide when hovering over the carousel
+document.querySelector('.course-img').addEventListener('mouseenter', () => {
+   clearInterval(slideInterval);
+});
+
+// Resume the auto slide when leaving the carousel
+document.querySelector('.course-img').addEventListener('mouseleave', () => {
+   slideInterval = setInterval(showNextSlide, 3000);
+});
+
+// Add event listeners to navigation buttons
+document.getElementById('nextBtn').addEventListener('click', () => {
+   clearInterval(slideInterval); // Stop auto slide when manually navigating
+   showNextSlide();
+   slideInterval = setInterval(showNextSlide, 3000); // Restart auto slide
+});
+
+document.getElementById('prevBtn').addEventListener('click', () => {
+   clearInterval(slideInterval); // Stop auto slide when manually navigating
+   showPreviousSlide();
+   slideInterval = setInterval(showNextSlide, 3000); // Restart auto slide
+});
+
+// Initial display
+updateCarousel();
+
 
 window.onscroll = () =>{
    profile.classList.remove('active');

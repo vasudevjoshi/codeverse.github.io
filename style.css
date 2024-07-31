@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anek+Devanagari:wght@100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 :root{
-   --main-color:#0abde3;
+   --main-color:#2c3e50;
    --red:#e74c3c;
    --orange:#f39c12;
    --light-color:#888;
@@ -23,6 +23,7 @@
    outline: none;
    border: none; 
    text-decoration: none;
+   /* text-transform: capitalize; */
 
 }
 
@@ -53,6 +54,7 @@ html::-webkit-scrollbar-thumb{
 body{
    background-color: var(--light-bg);
    height: 100%;
+   text-decoration: none;
    /* padding-left: 30rem; */
 }
 
@@ -76,7 +78,7 @@ section{
 }
 
 .heading{
-   font-size: 2.5rem;
+   font-size: 3.5rem;
    color:var(--black);
    margin-bottom: 2.5rem;
    border-bottom: var(--border);
@@ -120,7 +122,7 @@ section{
 
 .option-btn,
 .inline-option-btn{
-   background-color:var(--orange);
+   background-color:rgba(45, 146, 213, 0.658);
 }
 
 .delete-btn,
@@ -160,11 +162,20 @@ section{
 }
 
 .header .flex .logo{
+   display: flex;
+   align-items: center;
    font-size: 2.5rem;
    color: var(--black);
    text-decoration: none;
+} 
+.header .flex .logo .logo-div{
+   display: flex;
+   align-items: center;
 }
-
+.header .flex .logo .logo-img{
+   width: 5rem;
+   margin-right: 1rem;
+}
 .header .flex .search-form{
    width: 50rem;
    border-radius: .5rem;
@@ -223,6 +234,7 @@ section{
    transform: scale(0);
    transition: .2s linear;
    width: 30rem;
+   text-transform: capitalize;
 }
 
 .header .flex .profile.active{
@@ -263,16 +275,14 @@ section{
 
 .carousel-container {
    display: flex;
-   overflow-x: hidden; /*Hide any overflow */
-   overflow-y: hidden;
+   transition: transform 0.3s ease;
 }
 
 .carousel-slide {
-   flex: 0 0 100%; /* Adjusted width to show parts of previous and next slides */
+   flex: 0 0 100%;
    padding: 20px;
    box-sizing: border-box;
    text-align: center;
-   transition: transform 0.3s ease; /* Smooth transition for slide animation */
 }
 
 .carousel-slide img {
@@ -283,17 +293,14 @@ section{
 
 .carousel-slide h2 {
    font-size: 4rem;
-   /* color: #333; */
    margin-bottom: 10px;
+   color: var(--black);
 }
 
 .carousel-slide p {
    font-size: 1.5rem;
-   /* color: #666; */
    margin-bottom: 15px;
 }
-
-
 .carousel-slide.prev {
    transform: translateX(calc(-100% + 20px)); /* Shift previous slide partially into view */
 }
@@ -301,10 +308,18 @@ section{
 .carousel-slide.next {
    transform: translateX(calc(100% - 20px)); /* Shift next slide partially into view */
 }
-
+.carousel-slide img:hover{
+   transform: scale(1.05);
+   transition: ease-out 0.1s;
+   box-shadow: 0 10px 10px black; 
+}
+.carousel-slide h2:hover{
+   transform: scale(1.05);
+   transition: ease-in 0.1s;
+}
 .course-img{
-   width: 60%;
-   height: 55%;
+   width: 70vw;
+   height: 60%;
 
 }
 #prevBtn {
@@ -346,6 +361,7 @@ section{
    /* transform-origin: left; */
    transition: 0.2s ease-in;
    z-index: 1000;
+   text-transform: capitalize;
 }
 
 .side-bar.active{
@@ -450,12 +466,15 @@ section{
    border-radius: .5rem;
    padding:2rem;
 }
+.courses{
+   text-transform: capitalize;
+}
 .courses .box-container .box:hover{
    transform: scale(1.05);
     box-shadow: 0 19px 10px black;
 }
 .courses .box-container .box .inline-btn{
-   background-color:black;
+   background-color:#2c3e50;
    color: white;
    border: none;
    border-radius: 5px;
@@ -481,8 +500,8 @@ background-color:#e74c3c(81, 30, 219);
    font-size: 30px;
 }
 .courses  .more-btn .inline-option-btn:hover{
-   box-shadow: 0 9px 10px rgb(20, 34, 235);
-background-color:rgba(104, 167, 209, 0.658);
+   box-shadow: 0 9px 10px black;
+background-color:rgba(45, 146, 213, 0.658);
 
 
 }
