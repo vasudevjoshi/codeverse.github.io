@@ -59,12 +59,13 @@ body{
 }
 
 body.dark{
-   --light-color:#aaa;
+   --main-color:#6bb2f9;
+   --light-color:#f6eeee;
    --light-bg:#333;
    --black:#fff;
    --white:#222;
    --border:.1rem solid rgba(255,255,255,.2);
-   color: white;
+      color: white;
 }
 
 body.active{
