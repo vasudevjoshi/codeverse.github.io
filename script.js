@@ -27,6 +27,8 @@ toggleBtn.onclick = (e) =>{
    }
 }
 
+
+
 let profile = document.querySelector('.header .flex .profile');
 
 document.querySelector('#user-btn').onclick = () =>{
@@ -142,10 +144,34 @@ document.getElementById('prevBtn').addEventListener('click', () => {
 // Initial display
 updateCarousel();
 
-
 window.onscroll = () =>{
    profile.classList.remove('active');
    search.classList.remove('active');
       sideBar.classList.remove('active');
       body.classList.remove('active');
 }
+(function() {
+   document.getElementById('loginForm').addEventListener('submit', function(event) {
+       event.preventDefault();
+
+       console.log("Form submitted");
+
+       const email = document.getElementById('email').value;
+       const password = document.getElementById('password').value;
+       const errorElement = document.getElementById('error');
+
+       const validEmail = 'user@example.com';
+       const validPassword = 'password123';
+
+       console.log("Email entered: " + email);
+       console.log("Password entered: " + password);
+
+       if (email === validEmail && password === validPassword) {
+           console.log("Redirecting to home.html");
+           window.location.href = 'home.html';  // Redirect to home.html
+       } else {
+           console.log("Invalid email or password");
+           errorElement.textContent = 'Invalid email or password';
+       }
+   });
+})();
